@@ -8,3 +8,136 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
+.password-confirmation-form {
+  max-width: 42rem;
+}
+
+.password-confirmation-form input[type="email"],
+.password-confirmation-form input[type="password"] {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 0.75rem;
+  padding: 0.375rem 0.625rem;
+  font: inherit;
+  font-size: 0.875rem;
+  color: #111827;
+  background: #fff;
+  border: 0;
+  border-radius: 2px;
+  outline: none;
+  box-shadow: 0 0 0 1px rgb(229 231 235 / 0.8);
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.buttons:has(* + *) {
+  justify-content: space-between;
+}
+
+.button-primary,
+.button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4375rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease, transform 150ms ease;
+}
+
+.button-primary {
+  color: #fff;
+  background: #030712;
+}
+
+.button-primary:hover {
+  color: #bfdbfe;
+}
+
+.button-secondary {
+  color: #1f2937;
+  background: #f3f4f6;
+}
+
+.button-secondary:hover {
+  background: #f9fafb;
+}
+
+.button-primary:active,
+.button-secondary:active {
+  transform: scale(0.98);
+}
+
+.password-confirmation-dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: 100%;
+  max-width: 24rem;
+  padding: 0.5rem;
+  background: #fff;
+  border: 0;
+  border-radius: 2px;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.password-confirmation-dialog::backdrop {
+  background: rgb(0 0 0 / 0.4);
+}
+
+.password-confirmation-dialog h2 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #111827;
+}
+
+.password-confirmation-dialog p {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.password-confirmation-dialog input[type="password"] {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 1rem;
+  padding: 0.375rem 0.625rem;
+  font: inherit;
+  font-size: 0.875rem;
+  color: #111827;
+  background: #fff;
+  border: 0;
+  border-radius: 2px;
+  outline: none;
+  box-shadow: 0 0 0 1px rgb(229 231 235 / 0.8);
+}
+
+.notice,
+.errors {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+}
+
+.notice {
+  color: #166534;
+}
+
+.errors {
+  color: #991b1b;
+}

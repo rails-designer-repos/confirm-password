@@ -1,1 +1,15 @@
+<h1>Account</h1>
 
+<% if flash[:notice] %><p class="notice"><%= flash[:notice] %></p><% end %>
+
+<% if @user.errors.any? %>
+  <ul class="errors"><% @user.errors.full_messages.each do |message| %><li><%= message %></li><% end %></ul>
+<% end %>
+
+<%= form_with model: @user, url: account_path, method: :post, id: "user-credentials-form", class: "password-confirmation-form" do |form| %>
+  <%= form.email_field :email_address, placeholder: "name@company.com", autocomplete: "email", "@keydown.enter": "openModal:preventDefault", "@target": "password-confirmation-dialog" %>
+  <%= form.password_field :password, autocomplete: "new-password", placeholder: "•••••••••••••", "@keydown.enter": "openModal:preventDefault", "@target": "password-confirmation-dialog" %>
+  <div class="buttons"><%= button_tag "Save", type: :button, "@action": "openModal", "@target": "password-confirmation-dialog", class: "button-primary" %></div>
+<% end %>
+
+<%= render "password_confirmation_dialog", id: "password-confirmation-dialog", form_id: "user-credentials-form", input_name: "user[password_challenge]" %>

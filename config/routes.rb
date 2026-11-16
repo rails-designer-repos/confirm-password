@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  root to: "pages#show"
+  root "pages#show"
+  post "account", to: "pages#update", as: :account
 end
